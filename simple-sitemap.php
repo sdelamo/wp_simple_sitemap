@@ -8,6 +8,15 @@ Author: David Gwyer
 Author URI: http://www.presscoders.com
 */
 
+
+
+/**
+ * Constants
+ */
+
+define( 'WPSS_URL', plugin_dir_url(__FILE__) );
+
+
 /*  Copyright 2009 David Gwyer (email : d.v.gwyer@presscoders.com)
 
     This program is free software; you can redistribute it and/or modify
@@ -54,6 +63,8 @@ register_uninstall_hook(__FILE__, 'wpss_delete_plugin_options');
 add_action('admin_init', 'wpss_init' );
 add_action('admin_menu', 'wpss_add_options_page');
 
+
+
 // ***************************************
 // *** START - Create Admin Options    ***
 // ***************************************
@@ -78,6 +89,7 @@ function wpss_add_defaults() {
 	}
 }
 
+
 /* Init plugin options to white list our options. */
 function wpss_init(){
 	/* This is primarily to check newly added options have correct initial values. */
@@ -88,7 +100,18 @@ function wpss_init(){
 		update_option('wpss_options', $tmp);
 	}
 	register_setting( 'wpss_plugin_options', 'wpss_options', 'wpss_validate_options' );
+	
 }
+
+
+function wpss_textdomain() {
+
+	if ( function_exists('load_plugin_textdomain') ) {
+		load_plugin_textdomain( 'wpss', WPSS_URL . 'languages', 'simple-sitemap/languages' );
+	}
+
+}
+add_action( 'init', 'wpss_textdomain' );
 
 /* Add menu page. */
 function wpss_add_options_page() {
@@ -106,67 +129,67 @@ function wpss_render_form() {
 	?>
 	<div class="wrap">
 		<div class="icon32" id="icon-options-general"><br></div>
-		<h2>Simple Sitemap Options</h2>
-		<div style="background:#eee;border: 1px dashed #ccc;font-size: 13px;margin: 20px 0 10px 0;padding: 5px 0 5px 8px;">To display the Simple Sitemap on a post/page, enter the following <a href="http://codex.wordpress.org/Shortcode_API" target="_blank">shortcode</a>: <b>[simple-sitemap]</b></div>
+		<h2><?php _e('Simple Sitemap Options','wpss'); ?></h2>
+		<div style="background:#eee;border: 1px dashed #ccc;font-size: 13px;margin: 20px 0 10px 0;padding: 5px 0 5px 8px;"><?php _e('To display the Simple Sitemap on a post/page, enter the following','wpss'); ?> <a href="http://codex.wordpress.org/Shortcode_API" target="_blank">shortcode</a>: <b>[simple-sitemap]</b></div>
 		<form method="post" action="options.php">
 			<?php settings_fields('wpss_plugin_options'); ?>
 			<?php $options = get_option('wpss_options'); ?>
 			<table class="form-table">
 				<tr valign="top">
-					<th scope="row">Content Display Order</th>
+					<th scope="row"><?php _e('Content Display Order','wpss'); ?></th>
 					<td>
-						<label><input name="wpss_options[rdo_display_order]" type="radio" value="posts_left" <?php checked('posts_left', $options['rdo_display_order']); ?> /> Display <u>Posts</u> on LHS<span style="margin-left:10px;color: #999;">(with pages on the RHS)</span></label><br />
-						<label><input name="wpss_options[rdo_display_order]" type="radio" value="pages_left" <?php checked('pages_left', $options['rdo_display_order']); ?> /> Display <u>Pages</u> on LHS<span style="margin-left:10px;color: #999;">(with posts on the RHS)</span></label><br />
+						<label><input name="wpss_options[rdo_display_order]" type="radio" value="posts_left" <?php checked('posts_left', $options['rdo_display_order']); ?> /> <?php _e('Display','wpss'); ?> <u><?php _e('Posts','wpss'); ?></u> <?php _e('on LHS','wpss'); ?><span style="margin-left:10px;color: #999;">(<?php _e('with pages on the RHS','wpss'); ?>)</span></label><br />
+						<label><input name="wpss_options[rdo_display_order]" type="radio" value="pages_left" <?php checked('pages_left', $options['rdo_display_order']); ?> /> <?php _e('Display','wpss'); ?> <u><?php _e('Pages','wpss'); ?></u> <?php _e('on LHS','wpss'); ?><span style="margin-left:10px;color: #999;">(<?php _e('with posts on the RHS','wpss'); ?>)</span></label><br />
 					</td>
 				</tr>
 
 				<tr>
-					<th scope="row">Pages Drop-Down Default</th>
+					<th scope="row"><?php _e('Pages Drop-Down Default','wpss'); ?></th>
 					<td>
 						<select style="width:90px;" name='wpss_options[drp_pages_default]'>
-							<option value='post_title' <?php selected('post_title', $options['drp_pages_default']); ?>>Title</option>
-							<option value='post_date' <?php selected('post_date', $options['drp_pages_default']); ?>>Date</option>
-							<option value='post_author' <?php selected('post_author', $options['drp_pages_default']); ?>>Author</option>
+							<option value='post_title' <?php selected('post_title', $options['drp_pages_default']); ?>><?php _e('Title','wpss'); ?></option>
+							<option value='post_date' <?php selected('post_date', $options['drp_pages_default']); ?>><?php _e('Date','wpss'); ?></option>
+							<option value='post_author' <?php selected('post_author', $options['drp_pages_default']); ?>><?php _e('Author','wpss'); ?></option>
 						</select>
 					</td>
 				</tr>
 
 				<tr>
-					<th scope="row">Posts Drop-Down Default</th>
+					<th scope="row"><?php _e('Posts Drop-Down Default','wpss'); ?></th>
 					<td>
 						<select style="width:90px;" name='wpss_options[drp_posts_default]'>
-							<option value='title' <?php selected('title', $options['drp_posts_default']); ?>>Title</option>
-							<option value='date' <?php selected('date', $options['drp_posts_default']); ?>>Date</option>
-							<option value='author' <?php selected('author', $options['drp_posts_default']); ?>>Author</option>
-							<option value='category' <?php selected('category', $options['drp_posts_default']); ?>>Category</option>
-							<option value='tags' <?php selected('tags', $options['drp_posts_default']); ?>>Tags</option>
+							<option value='title' <?php selected('title', $options['drp_posts_default']); ?>><?php _e('Title','wpss'); ?></option>
+							<option value='date' <?php selected('date', $options['drp_posts_default']); ?>><?php _e('Date','wpss'); ?></option>
+							<option value='author' <?php selected('author', $options['drp_posts_default']); ?>><?php _e('Author','wpss'); ?></option>
+							<option value='category' <?php selected('category', $options['drp_posts_default']); ?>><?php _e('Category','wpss'); ?></option>
+							<option value='tags' <?php selected('tags', $options['drp_posts_default']); ?>><?php _e('Tags','wpss'); ?></option>
 						</select>
 					</td>
 				</tr>
 
 				<tr>
-					<th scope="row">Exclude Pages</th>
+					<th scope="row"><?php _e('Exclude Pages','wpss'); ?></th>
 					<td>
-						<input type="text" size="30" name="wpss_options[txt_page_ids]" value="<?php echo $options['txt_page_ids']; ?>" /><span style="margin-left:10px;color: #999;">Enter a comma separated list of Page ID's.</span>
+						<input type="text" size="30" name="wpss_options[txt_page_ids]" value="<?php echo $options['txt_page_ids']; ?>" /><span style="margin-left:10px;color: #999;"><?php _e("Enter a comma separated list of Page ID's",'wpss'); ?>.</span>
 					</td>
 				</tr>
 
 				<tr><td colspan="2"><div style="margin-top:10px;"></div></td></tr>
 
 				<tr valign="top" style="border-top:#dddddd 1px solid;">
-					<th scope="row">Database Options</th>
+					<th scope="row"><?php _e('Database Options','wpss'); ?></th>
 					<td>
-						<label><input name="wpss_options[chk_default_options_db]" type="checkbox" value="1" <?php if (isset($options['chk_default_options_db'])) { checked('1', $options['chk_default_options_db']); } ?> /> Restore Plugin defaults upon deactivation/reactivation</label><br /><span style="color:#666666;margin-left:2px;">Only check this if you want to reset plugin settings upon reactivation</span>
+						<label><input name="wpss_options[chk_default_options_db]" type="checkbox" value="1" <?php if (isset($options['chk_default_options_db'])) { checked('1', $options['chk_default_options_db']); } ?> /> <?php _e('Restore Plugin defaults upon deactivation/reactivation','wpss'); ?></label><br /><span style="color:#666666;margin-left:2px;"><?php _e('Only check this if you want to reset plugin settings upon reactivation','wpss'); ?></span>
 					</td>
 				</tr>
 			</table>
 			<p class="submit">
-			<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+			<input type="submit" class="button-primary" value="<?php _e('Save Changes','wpss') ?>" />
 			</p>
 		</form>
 
 		<div style="margin-top:15px;">
-			<p style="margin-bottom:10px;">If you use this Plugin on your website <b><em>please</em></b> consider making a <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UUFZZU35RZPW8" target="_blank">donation</a> to support continued development. Thanks.&nbsp;&nbsp;:-)</p>
+			<p style="margin-bottom:10px;"><?php _e('If you use this Plugin on your website','wpss'); ?> <b><em><?php _e('please','wpss'); ?></em></b> <?php _e('consider making a','wpss'); ?> <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UUFZZU35RZPW8" target="_blank"><?php _e('donation','wpss'); ?></a> <?php _e('to support continued development. Thanks.','wpss'); ?>&nbsp;&nbsp;:-)</p>
 		</div>
 
 		<div style="clear:both;">
@@ -318,15 +341,15 @@ function wpss_gen() {
 			}
 		?>
 		<div id="ss_pages" style="<?php echo $pages_float ?>">
-			<h2 class='page_heading'>Pages</h2>
+			<h2 class='page_heading'><?php _e('Pages','wpss'); ?></h2>
 			
 			<div id="page_drop_down">
 				<form name="page_drop_form" id="page_drop_form">
-					<span id="page_dd_label">Show pages by:</span>
+					<span id="page_dd_label"><?php _e('Show pages by:','wpss'); ?></span>
 					<select name="page_drop_select" OnChange="location.href=page_drop_form.page_drop_select.options[selectedIndex].value">
-						<option value="<?php echo $link_url.$query_symbol.'pagesort=post_title'; ?>" <?php echo $pt1; ?>>Title</option>
-						<option value="<?php echo $link_url.$query_symbol.'pagesort=post_date'; ?>" <?php echo $pd1; ?>>Date</option>
-						<option value="<?php echo $link_url.$query_symbol.'pagesort=post_author'; ?>" <?php echo $pa1; ?>>Author</option>
+						<option value="<?php echo $link_url.$query_symbol.'pagesort=post_title'; ?>" <?php echo $pt1; ?>><?php _e('Title','wpss'); ?></option>
+						<option value="<?php echo $link_url.$query_symbol.'pagesort=post_date'; ?>" <?php echo $pd1; ?>><?php _e('Date','wpss'); ?></option>
+						<option value="<?php echo $link_url.$query_symbol.'pagesort=post_author'; ?>" <?php echo $pa1; ?>><?php _e('Author','wpss'); ?></option>
 					</select>
 				</form>
 			</div>
@@ -354,7 +377,7 @@ function wpss_gen() {
 						echo "</ul></div>";
 					}
 					else {
-						echo "<div class='page_author'>$author->display_name <span class=\"ss_sticky\">(no pages published)</span></div>";
+						echo "<div class='page_author'>$author->display_name <span class=\"ss_sticky\">("; _e('no pages published','wpss'); echo ")</span></div>";
 					}
 				} ?>
 			<?php
@@ -377,16 +400,16 @@ function wpss_gen() {
 			}
 		?>
 		<div id="ss_posts" style="<?php echo $posts_float ?>">
-			<h2 class='post_heading'>Posts</h2>
+			<h2 class='post_heading'><?php _e('Posts','wpss'); ?></h2>
 			<div id="post_drop_down">
 				<form name="post_drop_form" id="post_drop_form">
-					<span id="post_dd_label">Show posts by:</span>
+					<span id="post_dd_label"><?php _e('Show posts by:','wpss'); ?></span>
 					<select name="post_drop_select" OnChange="location.href=post_drop_form.post_drop_select.options[selectedIndex].value">
-						<option value="<?php echo $link_url.$query_symbol.'postsort=title'; ?>" <?php echo $pt2; ?>>Title</option>
-						<option value="<?php echo $link_url.$query_symbol.'postsort=date'; ?>" <?php echo $pd2; ?>>Date</option>
-						<option value="<?php echo $link_url.$query_symbol.'postsort=author'; ?>" <?php echo $pa2; ?>>Author</option>
-						<option value="<?php echo $link_url.$query_symbol.'postsort=category'; ?>" <?php echo $pc2; ?>>Category</option>
-						<option value="<?php echo $link_url.$query_symbol.'postsort=tags'; ?>" <?php echo $ptg2; ?>>Tags</option>	
+						<option value="<?php echo $link_url.$query_symbol.'postsort=title'; ?>" <?php echo $pt2; ?>><?php _e('Title','wpss'); ?></option>
+						<option value="<?php echo $link_url.$query_symbol.'postsort=date'; ?>" <?php echo $pd2; ?>><?php _e('Date','wpss'); ?></option>
+						<option value="<?php echo $link_url.$query_symbol.'postsort=author'; ?>" <?php echo $pa2; ?>><?php _e('Author','wpss'); ?></option>
+						<option value="<?php echo $link_url.$query_symbol.'postsort=category'; ?>" <?php echo $pc2; ?>><?php _e('Category','wpss'); ?></option>
+						<option value="<?php echo $link_url.$query_symbol.'postsort=tags'; ?>" <?php echo $ptg2; ?>><?php _e('Tags','wpss'); ?></option>	
 					</select>
 				</form>
 			</div>
@@ -408,7 +431,7 @@ function wpss_gen() {
 						while (have_posts()) :
 							the_post(); ?>
 							<li class="post_item">
-								<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to','wpss'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 							</li>
 						<?php  endwhile;
 						echo '</ul></div>';
@@ -430,7 +453,7 @@ function wpss_gen() {
 						while (have_posts()) :
 							the_post(); ?>
 							<li class="post_item">
-								<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to','wpss'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 							</li>
 						<?php  endwhile;
 						echo '</ul></div>';
@@ -453,7 +476,7 @@ function wpss_gen() {
 						while (have_posts()) :
 							the_post(); ?>
 							<li class="post_item">
-								<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to','wpss'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 							</li>
 						<?php  endwhile;
 						echo '</ul></div>';
@@ -480,7 +503,7 @@ function wpss_gen() {
 						while (have_posts()) :
 							the_post(); ?>
 							<li class="post_item">
-								<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to','wpss'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 							</li>
 						<?php  endwhile;
 						echo '</ul></div>';
@@ -500,7 +523,7 @@ function wpss_gen() {
 							$sticky="";
 							if(is_sticky(get_the_ID())) { $sticky=" (sticky post)"; } ?>
 							<li class="post_item">
-								<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to','wpss'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 								<?php if ( $sticky == ' (sticky post)' ) : ?>
 									<span class="ss_sticky"><?php echo $sticky; ?></span>
 								<?php endif; ?>
