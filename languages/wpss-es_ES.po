@@ -1,0 +1,156 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Sitemap\n"
+"POT-Creation-Date: 2012-12-24 09:32+0100\n"
+"PO-Revision-Date: 2012-12-24 09:55+0100\n"
+"Last-Translator: Sergio del Amo <sergio.delamo@softamo.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/"
+"plugins/simple-sitemap\n"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:128
+msgid "Simple Sitemap Options"
+msgstr "Preferencias del Plugin Simple Sitemap"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:129
+msgid "To display the Simple Sitemap on a post/page, enter the following"
+msgstr ""
+"Para mostrar el índice \"Simple Sitemap\" en una entrada/página, introduce "
+"el siguiente"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:135
+msgid "Content Display Order"
+msgstr "Orden"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:137
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:138
+msgid "Display"
+msgstr "Mostrar"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:137
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:399
+msgid "Posts"
+msgstr "Entradas"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:137
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:138
+msgid "on LHS"
+msgstr "en LHS"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:137
+msgid "with pages on the RHS"
+msgstr "con página en el RHS"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:138
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:340
+msgid "Pages"
+msgstr "Páginas"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:138
+msgid "with posts on the RHS)"
+msgstr "con entradas en el RHS)"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:143
+msgid "Pages Drop-Down Default"
+msgstr "Desplegable de páginas por defecto"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:146
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:157
+msgid "Title"
+msgstr "Título"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:147
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:158
+msgid "Date"
+msgstr "Fecha"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:148
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:159
+msgid "Author"
+msgstr "Autor"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:154
+msgid "Posts Drop-Down Default"
+msgstr "Desplegable de entradas por defecto"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:160
+msgid "Category"
+msgstr "Categoría"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:161
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:167
+msgid "Exclude Pages"
+msgstr "Excluir páginas"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:169
+msgid "Enter a comma separated list of Page ID's"
+msgstr "Incluir una lista de ID de páginas separados por coma"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:176
+msgid "Database Options"
+msgstr "Opciones de base de datos"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:178
+msgid "Restore Plugin defaults upon deactivation/reactivation"
+msgstr ""
+"Restaurar la configuración del plugin por defecto cuando se activa y "
+"desactiva"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:178
+msgid "Only check this if you want to reset plugin settings upon reactivation"
+msgstr ""
+"Marcar sólo esta opción si quieres resetear la configuración del plugin "
+"cuando se reactiva"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:183
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:188
+msgid "If you use this Plugin on your website"
+msgstr "Si usas este plugin en tu portal Web"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:188
+msgid "please"
+msgstr "por favor"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:188
+msgid "consider making a"
+msgstr "considera hacer una"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:188
+msgid "donation"
+msgstr "donación"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:188
+msgid "to support continued development. Thanks."
+msgstr "para soportar el desarrollo futuro. Gracias"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:344
+msgid "Show pages by:"
+msgstr "Mostrar páginas por:"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:376
+msgid "no pages published"
+msgstr "no hay páginas publicadas"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:402
+msgid "Show posts by:"
+msgstr "Mostrar entradas por:"
+
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:430
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:452
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:475
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:502
+#: /Users/sdelamo/Documents/sites/brihuega.es/wp-content/plugins/simple-sitemap/simple-sitemap.php:522
+msgid "Permanent Link to"
+msgstr "Enlace Permanente a"
