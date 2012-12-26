@@ -1,7 +1,7 @@
 Wordpress Simple Sitemap plugin with internationalization
 =================
 This repository offers a localized versión of the Wordpress Simple Sitemap plugin. 
-https://github.com/sdelamo/wp_simple_sitemap
+http://wordpress.org/extend/plugins/simple-sitemap/
 
 Currently english and spanish are supported added. However, new versions can be easily created 
 by adding a new po file under the languages directory.
